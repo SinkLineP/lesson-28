@@ -12,6 +12,15 @@ before do
 	init_db
 end
 
+configure do
+	db.execute 'CREATE TABLE "pots" 
+	(
+		id	INTEGER INTEGER PRIMARY KEY AUTOINCREMENT, 
+		create_date	INTEGER, 
+		content	TEXT
+	);'
+end
+
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
