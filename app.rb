@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sqlite3'
 
 def init_db
 	@db = SQLite3::Database.new 'blizary.db'
@@ -13,7 +14,8 @@ before do
 end
 
 configure do
-	db.execute 'CREATE TABLE "pots" 
+	init_db
+	@db.execute 'create table if not exists "posts" 
 	(
 		id	INTEGER INTEGER PRIMARY KEY AUTOINCREMENT, 
 		create_date	INTEGER, 
