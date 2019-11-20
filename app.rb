@@ -10,3 +10,8 @@ end
 get '/new' do
 	erb :new_post
 end
+
+post '/new' do
+	@content = params[:content]
+	erb "Text #{@content}"
+end
