@@ -10,7 +10,10 @@
 <% @comments.each do |comment| %>
 	<p>
 		<%= comment['content'] %>
+		<br />
+		<span style="font-size: 75%; color: #999">Added at <%= comment['create_date'] %></span>
 	</p>
+	<hr />
 <% end %>
 
 <p>
