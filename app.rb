@@ -26,8 +26,8 @@ configure do
 	(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,  
 		create_date	DATE, 
-		content	TEXT
-		post_id integer
+		content	TEXT,
+		post_id INTEGER
 	)'
 end
 
@@ -66,6 +66,8 @@ end
 post '/comments/:post_id' do
 	post_id = params[:post_id]
 	content = params[:content]
+
+	@db.execute 'insert into Comments (content, create_date, post_id) values (?, datetime(), ?)', [content, post_id]
 
 	erb "You typed #{content} your post #{post_id}"
 end
