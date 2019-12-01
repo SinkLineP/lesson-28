@@ -21,6 +21,7 @@ configure do
 		create_date	DATE, 
 		content	TEXT
 	)'
+
 end
 
 get '/' do
@@ -43,7 +44,7 @@ post '/new' do
 
 	@db.execute 'insert into Posts (content, create_date) values (?, datetime())', [content]
 
-	redirect "/"
+	redirect to "/"
 end
 
 get '/comments/:post_id' do
