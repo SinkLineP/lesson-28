@@ -55,3 +55,10 @@ get '/comments/:post_id' do
 
 	erb :comments
 end
+
+post '/comments/:post_id' do
+	post_id = params[:post_id]
+	content = params[:content]
+
+	erb "You typed #{content} your post #{post_id}"
+end
